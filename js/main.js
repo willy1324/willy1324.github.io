@@ -1,4 +1,4 @@
-export class randomAgent 
+class randomAgent 
 {
     constructor()
     {
