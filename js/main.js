@@ -1,10 +1,10 @@
-import "characerDb.randomAgent"
+import { randomAgent } from './characterDb.js';
 
 names = ["Juampa", "Lucía", "Fabri", "Pancho", "Juguito"]
-characters = randomAgent();
+//characters = new randomAgent();
 
-
-names.array.forEach(element =>
+document.write("- {name} debe usar un {randomRole}, sugiero que sea {randomAgent}")
+/* for (i = 0; i < names.length;i++)
     {
         roleChoicer = Math.floor(Math.random()*5);
         randomRole = characters.randomRole(roleChoicer);
@@ -32,6 +32,6 @@ names.array.forEach(element =>
             
         document.write("- {name} debe usar un {randomRole}, sugiero que sea {randomAgent}")
     }
+ */
 
-)
    

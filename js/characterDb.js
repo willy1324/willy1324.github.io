@@ -55,13 +55,13 @@ class randomAgent
         ];
 
         this.roleList = 
-        (
+        [
             controller,
             initiator,
             sentinel,
             duelist,
             juampaPunisher
-        );
+        ];
     }
     
     randomRole(roleIndex)
@@ -69,7 +69,7 @@ class randomAgent
             return roleList[roleIndex][0];
         }
              
-    randomAgentList(self,roleIndex,agentIndex)
+    randomAgentList(roleIndex,agentIndex)
         {
             return roleList[roleIndex][agentIndex];
         }        
