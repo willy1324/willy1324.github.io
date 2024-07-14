@@ -4,7 +4,6 @@ export class randomAgent
     {
             this.controller = 
         [
-            "Controlador",
             "Brimstone",
             "Astra",
             "Clove",
@@ -15,7 +14,6 @@ export class randomAgent
 
         this.initiator = 
         [
-            "Iniciador",
             "Breach",
             "Fade",
             "Gekko",
@@ -26,7 +24,6 @@ export class randomAgent
 
         this.sentinel = 
         [
-            "Centinela",
             "Chamber",
             "Cypher",
             "Deadlock",
@@ -36,7 +33,6 @@ export class randomAgent
 
         this.duelist = 
         [   
-            "Duelista", 
             "Iso",
             "Jett",
             "Neon",
@@ -56,24 +52,16 @@ export class randomAgent
 
         this.roleList = 
         [
-            controller,
-            initiator,
-            sentinel,
-            duelist,
-            juampaPunisher
+            "Controlador",
+            "Iniciador",
+            "Centinela",
+            "Duelista",
+            //this.juampaPunisher
         ];
     }
-    
-    randomRole(roleIndex)
-        {
-            return roleList[roleIndex][0];
-        }
-             
-    randomAgentList(roleIndex,agentIndex)
-        {
-            return roleList[roleIndex][agentIndex];
-        }        
 
 }
+
+
 
         
