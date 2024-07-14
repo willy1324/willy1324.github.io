@@ -1,6 +1,4 @@
-import randomAgent from 'js/characterDb.js';
-
-//---------------------Main-----------------------
+import { randomAgent } from "./characterDb";
 
 playerNames = ["Juampa", "Lucía", "Fabri", "Pancho", "Juguito"]
 let characters = new randomAgent();
