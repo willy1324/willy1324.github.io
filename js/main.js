@@ -64,33 +64,45 @@ class randomAgent
 
 playerNames = ["Juampa", "Lucía", "Fabri", "Pancho", "Juguito"]
 let characters = new randomAgent();
+let roleChoicer;
+let finalCharacter;
+let antiRepeat = [];
 
 for (let name = 0; name < playerNames.length;name++)
     {
         let roleChoicer = characters.roleList[Math.round(Math.random()*3)];
         let finalCharacter = characters.controller[0];
-        
+        let randomNum;
+
         switch (roleChoicer)
         {
             case "Controlador":
-                finalCharacter = characters.controller[Math.floor(Math.random() * characters.controller.length)]
+                randomNum = Math.floor(Math.random() * characters.controller.length);
+                finalCharacter = characters.controller[randomNum];
+                characters.controller.splice(randomNum,1)
                 break;
 
             case "Iniciador":
-                finalCharacter = characters.initiator[Math.floor(Math.random() * characters.initiator.length)]
+                randomNum = Math.floor(Math.random() * characters.initiator.length);
+                finalCharacter = characters.initiator[Math.floor(randomNum)]
+                characters.initiator.splice(randomNum,1)
                 break;
             
             case "Centinela":
-                finalCharacter = characters.sentinel[Math.floor(Math.random() * characters.sentinel.length)]
+                randomNum = Math.floor(Math.random() * characters.sentinel.length);
+                finalCharacter = characters.sentinel[Math.floor(randomNum)]
+                characters.sentinel.splice(randomNum,1)
                 break;
 
             case "Duelista":
-                finalCharacter = characters.duelist[Math.floor(Math.random() * characters.duelist.length)]
+                randomNum = Math.floor(Math.random() * characters.duelist.length);
+                finalCharacter = characters.duelist[Math.floor(randomNum)]
+                characters.duelist.splice(randomNum,1)
                 break;
         }
-
         document.write(`<br>${playerNames[name]} debe usar un ${roleChoicer}, sugiero que sea ${finalCharacter}<br>`)
     }
  
+
 
    
