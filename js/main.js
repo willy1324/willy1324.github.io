@@ -64,16 +64,17 @@ class randomAgent
 
 playerNames = ["Juampa", "Lucía", "Fabri", "Pancho", "Juguito"]
 let characters = new randomAgent();
-let roleChoicer;
-let finalCharacter;
-let antiRepeat = [];
 
+//Bucle de asignacion de personajes
 for (let name = 0; name < playerNames.length;name++)
     {
+        //Seleccion del rol dentro de la lista de roles.
         let roleChoicer = characters.roleList[Math.round(Math.random()*3)];
         let finalCharacter = characters.controller[0];
         let randomNum;
 
+        //generara un numero aleatorio dependiendo del largo de la lista de personajes actual, elegira un personaje de la lista
+        // y luego lo borrara para evitar duplicados.
         switch (roleChoicer)
         {
             case "Controlador":
@@ -100,6 +101,8 @@ for (let name = 0; name < playerNames.length;name++)
                 characters.duelist.splice(randomNum,1)
                 break;
         }
+        
+        //Mostrara la informacion en pantalla
         document.write(`<br>${playerNames[name]} debe usar un ${roleChoicer}, sugiero que sea ${finalCharacter}<br>`)
     }
  
