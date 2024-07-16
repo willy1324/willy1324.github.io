@@ -72,6 +72,7 @@ for (let name = 0; name < playerNames.length;name++)
         let roleChoicer = characters.roleList[Math.round(Math.random()*3)];
         let finalCharacter = characters.controller[0];
         let randomNum;
+        let infoOutput = document.getElementById("pInfoOutput");
 
         //generara un numero aleatorio dependiendo del largo de la lista de personajes actual, elegira un personaje de la lista
         // y luego lo borrara para evitar duplicados.
@@ -103,7 +104,7 @@ for (let name = 0; name < playerNames.length;name++)
         }
         
         //Mostrara la informacion en pantalla
-        document.write(`<br>${playerNames[name]} debe usar un ${roleChoicer}, sugiero que sea ${finalCharacter}<br>`)
+        infoOutput.innerHTML += `<br>${playerNames[name]} debe usar un ${roleChoicer}, sugiero que sea ${finalCharacter}<br>`;
     }
  
 

@@ -1,0 +1,41 @@
+body
+{
+    background-image: url("background.png");
+    margin: 0;
+}
+
+header
+{
+    align-content: stretch;
+    padding-left: 10%;
+    background-color:rgb(47, 47, 93);
+    min-height: 10rem;
+    opacity: 0.8;
+    font-size: 25px;
+    color:aliceblue;
+}
+
+section
+{
+    background-color:rgb(115, 115, 167);
+    min-height: 30rem;
+    font-size: large;
+    padding-left: 2rem;
+    margin-top: 10px;
+    margin-left: 8rem;
+    margin-right:8rem;
+    opacity: 0.8;
+    color:white;
+    text-shadow:1px 1px black;
+}
+
+footer
+{
+    align-content: stretch;
+    padding-left: 20%;
+    margin-top: 10px;
+    background-color:rgb(47, 47, 93);
+    min-height: 10rem;
+    opacity: 0.8;
+    color:aliceblue;
+}
