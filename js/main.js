@@ -2,7 +2,7 @@ class randomAgent
 {
     constructor()
     {
-            this.controller = 
+        this.controller = 
         [
             "Brimstone",
             "Astra",
@@ -42,21 +42,13 @@ class randomAgent
             "Yoru"
         ];
 
-        this.juampaPunisher = 
-        [
-            "Yoru",
-            "Astra",
-            "Brimstone",
-            "Deadlock"
-        ];
-
         this.roleList = 
         [
             "Controlador",
             "Iniciador",
             "Centinela",
             "Duelista",
-            //this.juampaPunisher
+
         ];
     }
 
