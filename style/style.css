@@ -7,7 +7,7 @@
 header
 {
     height: 20vh;
-    background-image: url("header-background.png");
+    background-image: url("images/header-background.png");
     background-size: 100% 100%;
     color:#FF4655;
     border-style: solid;
@@ -40,7 +40,7 @@ body
 
 main
 {
-    height:100%;
+    height: 100%;
     width:100vw;
     display:flex;
     background-color:#201226;
@@ -57,8 +57,45 @@ main
     text-shadow:1px 1px black;
 }
 
+.player-container{
+    width: 100%;
+    height: 90%;
+    display: flex;
+}
+
+.player-info{
+    background-color: white;
+    border-radius: 1rem;
+    display:inline-block;
+    width: 15%;
+    height: 95%;
+    flex-wrap: wrap;
+    margin:0.3rem 1.3rem;
+}
+
+.player-info h2{
+    padding:0.3rem;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.player-info img{
+    max-height: 70%;
+    width: 100%;
+}
+
+.randomizer-button{
+    border-style: none;
+    background-color: #FF4655;
+    color:white;
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 8rem;
+    margin-left:40%;
+}
+
 aside{
-    background-image: url("minimalist-valorant-logo.jpg");
+    background-image: url("images/minimalist-valorant-logo.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     opacity:0.2;
@@ -75,6 +112,7 @@ footer
 }
 
 footer p{
+    padding-top:0.5rem;
     color:aliceblue;
     text-align: center;
 }
