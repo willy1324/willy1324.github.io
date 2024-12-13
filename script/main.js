@@ -9,7 +9,7 @@ const playerContainer = document.createElement("section");
 playerContainer.className = "player-container" //para darle estilo
 mainSection.prepend(playerContainer);
 
-//Resetea el objeto ya que para impedir la repeticion elimina entradas y tambien resetea el contenedor.
+//Resetea el objeto ya que para impedir la repeticion, elimina entradas y tambien resetea el contenedor.
 //Luego itera la funcion para volver a mostrar la informacion.
 randomizerButton.addEventListener("click", () =>{
     const display = new playerDisplay.Display;

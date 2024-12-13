@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Finder</title>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <section class="main-container">
+        <section class="selector-bar">
+          <input class="input-pokemon" id="inputPokemon" value="bulbasaur" />
+          <button class="find-pokemon-btn" id="findPokemonBtn">
+            Find Pokemon
+          </button>
+        </section>
+        <section class="pokemon-container" id="pokemonContainer">
+          <section class="pokemon-data" id="pokemonData">
+            <h2 id="pokemonName">pokemon</h2>
+            <p id="pokedexNumber">Pokedex ID : 0</p>
+            <div>
+              <img id="pokemonSprite" alt="pokemon image" />
+            </div>
+            <h3>Types</h3>
+            <p id="pokemonType"></p>
+            <h3>Abilities</h3>
+            <p id="ability"></p>
+            <h3>Base Stats</h3>
+            <p id="hpStat">HP : 0</p>
+            <p id="atkStat">Attack : 0</p>
+            <p id="defStat">Defense : 0</p>
+            <p id="spAtkStat">Special Attack: 0</p>
+            <p id="spDefStat">Special Defense: 0</p>
+            <p id="speedStat">Speed: 0</p>
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
