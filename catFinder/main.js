@@ -48,9 +48,6 @@ async function loadFavouriteMichis() {
   const data = await res.json();
 
   favouriteMichis.innerHTML = "";
-  const title = document.createElement("h1");
-  title.textContent = "Gatitos Favoritos";
-  favouriteMichis.append(title);
   if (res.status !== 200) {
     alert("Se lo comio un perro :c :" + res.status + data.message);
   } else {
@@ -109,7 +106,7 @@ function favouriteArticle(data) {
   image.setAttribute("data-image-id", data.id);
 
   button.textContent = "Quitar de favoritos";
-  button.classList.add("save-favourite-btn");
+  button.classList.add("option-btn");
   button.setAttribute("id", "saveFavouriteBtn");
 
   article.append(image);
@@ -126,7 +123,7 @@ loadRandomMishisBtn.addEventListener("click", () => {
 
 //Guardar gato
 randomMichis.addEventListener("click", async (event) => {
-  if (event.target.classList.contains("save-favourite-btn")) {
+  if (event.target.classList.contains("option-btn")) {
     const targetArticle = event.target.parentElement;
     const id = targetArticle.children[0].getAttribute("data-image-id");
     console.log(targetArticle.children[0].getAttribute("data-image-id"));
@@ -138,7 +135,7 @@ randomMichis.addEventListener("click", async (event) => {
 
 //Borrar gato
 favouriteMichis.addEventListener("click", async (event) => {
-  if (event.target.classList.contains("save-favourite-btn")) {
+  if (event.target.classList.contains("option-btn")) {
     const targetArticle = event.target.parentElement;
     const id = targetArticle.children[0].getAttribute("data-image-id");
     console.log(targetArticle.children[0].getAttribute("data-image-id"));
