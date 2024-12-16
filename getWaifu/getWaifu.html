@@ -7,22 +7,27 @@
   </head>
   <body>
     <h1>API Imagen</h1>
-    <section>
-      <select id="typeSelector">
-        <option>sfw</option>
-        <option>nsfw</option>
-      </select>
-      <input
-        list="waifuCategory"
-        id="waifuCategoryChoice"
-        placeholder="waifu"
-      />
-      <datalist id="waifuCategory"></datalist>
-      <button id="getWaifuBtn">Get waifu</button>
-    </section>
-    <section>
-      <img style="height: 50rem" />
-    </section>
+    <main>
+      <section>
+        <input
+          list="waifuCategory"
+          id="waifuCategoryChoice"
+          placeholder="waifu"
+        />
+        <datalist id="waifuCategory"></datalist>
+        <button id="getWaifuBtn">Get waifu</button>
+        <button>SFW o NSFW</button>
+      </section>
+      <section>
+        <select id="typeSelector">
+          <option>sfw</option>
+          <option>nsfw</option>
+        </select>
+      </section>
+      <section>
+        <img style="height: 50rem" />
+      </section>
+    </main>
     <script src="app.js"></script>
   </body>
 </html>
