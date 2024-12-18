@@ -1,27 +1,21 @@
-/*HTTP status codes
-1XX Respuestas Afirmativas
-2XX Respuestas satisfactorias
-3XX Re-direcciones
-4XX Error del cliente
-5XX Error de servidor
-?inicio de query parameter
-&query parameter distinto
-*/
-const RANDOM_API_URL =
-  "https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_SbEVszaWyywfxyrUZaktfdNkNCinVQObHxC3ToRHzR1usnEtpMEwiWqL78w1BVyY"; //Endpoints
-
+const RANDOM_API_URL = "https://api.thecatapi.com/v1/images/search?limit=2"; //Endpoints
+const UPLOAD_API_URL = "https://api.thecatapi.com/v1/images/upload";
 function getFavouriteURL(endpoint) {
   if (endpoint === undefined) {
-    return `https://api.thecatapi.com/v1/favourites?api_key=live_SbEVszaWyywfxyrUZaktfdNkNCinVQObHxC3ToRHzR1usnEtpMEwiWqL78w1BVyY`;
+    return `https://api.thecatapi.com/v1/favourites`;
   } else {
-    return `https://api.thecatapi.com/v1/favourites/${endpoint}?api_key=live_SbEVszaWyywfxyrUZaktfdNkNCinVQObHxC3ToRHzR1usnEtpMEwiWqL78w1BVyY`;
+    return `https://api.thecatapi.com/v1/favourites/${endpoint}`;
   }
 }
 
-const loadRandomMishisBtn = document.getElementById("loadRandomMishisBtn");
+const key =
+  "live_SbEVszaWyywfxyrUZaktfdNkNCinVQObHxC3ToRHzR1usnEtpMEwiWqL78w1BVyY";
+
+const loadRandomMichisBtn = document.getElementById("loadRandomMichisBtn");
 const favouritesMichis = document.getElementById("favouritesMichis");
 const randomMichis = document.getElementById("randomMichis");
 const favouriteMichis = document.getElementById("favouritesMichis");
+const uploadMichis = document.getElementById("uploadMichisBtn");
 //===================== Llamadas a la API ========================
 
 async function loadRandomMichis() {
@@ -43,8 +37,27 @@ async function loadRandomMichis() {
   }
 }
 
+async function uploadNewMichis() {
+  const form = new FormData(document.getElementById("uploadForm"));
+  console.log(form.get("file"));
+
+  const res = await fetch(UPLOAD_API_URL, {
+    method: "POST",
+    headers: {
+      "x-api-key": key,
+      "Content-type": "multipart/form-data",
+    },
+    body: form,
+  });
+}
+
 async function loadFavouriteMichis() {
-  const res = await fetch(getFavouriteURL());
+  const res = await fetch(getFavouriteURL(), {
+    method: "GET",
+    headers: {
+      "x-api-key": key,
+    },
+  });
   const data = await res.json();
 
   favouriteMichis.innerHTML = "";
@@ -62,7 +75,10 @@ async function loadFavouriteMichis() {
 async function saveFavouriteMichi(id) {
   const res = await fetch(getFavouriteURL(), {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "x-api-key": key,
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({ image_id: id }),
   });
   const data = res.json();
@@ -76,6 +92,10 @@ async function saveFavouriteMichi(id) {
 async function deleteFavouriteMichi(id) {
   const res = await fetch(getFavouriteURL(id), {
     method: "DELETE",
+    headers: {
+      "x-api-key":
+        "live_SbEVszaWyywfxyrUZaktfdNkNCinVQObHxC3ToRHzR1usnEtpMEwiWqL78w1BVyY",
+    },
   });
   const data = await res.json();
   if (res.status !== 200) {
@@ -117,7 +137,7 @@ function favouriteArticle(data) {
 
 //=================Llamadas a funciónes==============================
 //Recargar gatos
-loadRandomMishisBtn.addEventListener("click", () => {
+loadRandomMichisBtn.addEventListener("click", () => {
   loadRandomMichis();
 });
 
@@ -147,5 +167,11 @@ favouriteMichis.addEventListener("click", async (event) => {
   }
 });
 
+//Subir Gato
+uploadMichis.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log("Subir Michi");
+  uploadNewMichis();
+});
 loadRandomMichis();
 loadFavouriteMichis();

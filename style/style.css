@@ -4,115 +4,98 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 header {
-  height: 20vh;
-  background-image: url("images/header-background.png");
-  background-size: 100% 100%;
-  color: #ff4655;
-  border-style: solid;
-  border-width: 0.3rem 0rem;
-}
-
-header h1 {
-  position: absolute;
-  padding: 0.2rem;
-  border-style: solid;
-}
-
-.logo img {
-  padding-left: 2rem;
-  height: 3rem;
-  width: 20rem;
-}
-
-.logo h1 {
-  margin-left: 2.6rem;
-  font-style: italic;
-  font-size: 3rem;
-  color: #ff4655;
-}
-
-body {
-  height: 70vh;
-}
-
-main {
-  height: 100%;
-  width: 100vw;
-  display: flex;
-  background-color: #201226;
-}
-
-.main-section {
-  padding-left: 50px;
-  padding-top: 10px;
-  width: 100%;
-  min-width: 80%;
-  font-size: large;
-  color: crimson;
-  background-color: #fbf9f1;
-  text-shadow: 1px 1px black;
-}
-
-.player-container {
-  width: 100%;
-  height: 90%;
-  display: flex;
-}
-
-.player-info {
-  background-color: white;
-  border-radius: 1rem;
-  display: inline-block;
-  width: 15%;
-  height: 95%;
-  flex-wrap: wrap;
-  margin: 0.3rem 1.3rem;
-}
-
-.player-info h2 {
-  padding: 0.3rem;
-  font-family: sans-serif;
-  text-align: center;
-}
-
-.player-info img {
-  max-height: 70%;
-  width: 100%;
-}
-
-.randomizer-button {
-  border-style: none;
-  background-color: #ff4655;
-  color: white;
-  border-radius: 2rem;
-  height: 2.5rem;
-  width: 8rem;
-  margin-left: 40%;
-}
-
-aside {
-  background-image: url("images/minimalist-valorant-logo.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  opacity: 0.2;
-  width: 15%;
-}
-
-aside a {
-  color: white;
+  min-height: 15vh;
+  background: linear-gradient(rgb(44, 41, 41), black);
 }
 
 footer {
-  color: #ff4655;
-  border-style: solid;
-  border-width: 0.3rem 0rem;
-  background: linear-gradient(#361a28, #852937);
-  height: 10vh;
+  color: aliceblue;
+  min-height: 15vh;
+  background: linear-gradient(rgb(44, 41, 41), black);
 }
 
-footer p {
-  padding-top: 0.5rem;
-  color: aliceblue;
-  text-align: center;
+main {
+  max-width: 100%;
+}
+
+@media (min-width: 150px) {
+  .titles {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .web-title {
+    width: 100%;
+    text-align: left;
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    color: aliceblue;
+    font-style: normal;
+  }
+
+  .sub-title {
+    text-align: right;
+    font-size: 3rem;
+    width: 100%;
+    margin-right: 2rem;
+    color: aliceblue;
+  }
+
+  header nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  header li,
+  a {
+    text-decoration: none;
+    margin: 0.5rem;
+    display: inline;
+    color: aliceblue;
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .titles {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .web-title {
+    font-size: 4rem;
+  }
+
+  .sub-title {
+    font-size: 3rem;
+    text-align: right;
+  }
+
+  header li,
+  a {
+    font-size: large;
+  }
+}
+
+@media (min-width: 800px) {
+  .web-title {
+    font-size: 5rem;
+  }
+
+  .sub-title {
+    font-size: 4rem;
+  }
+
+  header nav {
+    position: absolute;
+  }
 }

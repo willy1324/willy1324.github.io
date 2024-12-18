@@ -1,6 +1,40 @@
+:root {
+  --btn-color: rgb(174, 60, 60);
+  --btn-border-radius: 4rem;
+  --btn-height: 4rem;
+}
+
 @media (min-width: 150px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body {
+    background-color: brown;
+  }
+
+  .footprints-background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image: url("../background/main-background.png");
+    background-size: 15%;
+    background-position: right 2rem;
+    opacity: 0.4;
+    z-index: -1;
+  }
+
+  main h1 {
+    text-align: center;
+    color: white;
+    font-size: 4rem;
+    font-family: "Dancing Script", cursive;
+  }
+
   .random-michis,
-  .favourite-michis {
+  .favourite-michis,
+  .upload-michi {
     height: 50%;
     margin: 0 1rem;
     display: flex;
@@ -9,7 +43,12 @@
     justify-content: center;
   }
 
-  article {
+  input {
+    margin: 1rem;
+  }
+
+  article,
+  form {
     position: static;
     background-color: white;
     border-radius: 3rem;
@@ -21,6 +60,7 @@
     width: 70%;
     justify-content: center;
     opacity: 0.85;
+    box-shadow: 0.5rem 0.5rem 0.5rem rgb(83, 24, 24);
   }
 
   .option-btn {

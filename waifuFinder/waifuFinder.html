@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Waifu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../style/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="titles">
+          <h1 class="web-title">Abyssal Projects</h1>
+          <h1 class="sub-title">Waifu Finder</h1>
+        </div>
+        <nav>
+          <ul>
+            <a href="../index.html"><li>Inicio</li></a>
+            <a href="../pokemonFinder/pokemonFinder.html"
+              ><li>Pokemon Finder</li></a
+            >
+            <a href="../catFinder/catFinder.html"><li>Cat Finder</li></a>
+          </ul>
+        </nav>
+      </header>
+      <body>
+        <section>
+          <input
+            list="waifuCategory"
+            id="waifuCategoryChoice"
+            placeholder="waifu"
+          />
+          <datalist id="waifuCategory"></datalist>
+          <button id="getWaifuBtn">Get waifu</button>
+          <button>SFW o NSFW</button>
+        </section>
+        <section>
+          <select id="typeSelector">
+            <option>sfw</option>
+            <option>nsfw</option>
+          </select>
+        </section>
+        <section>
+          <article>
+            <img style="height: 50rem" />
+          </article>
+        </section>
+      </body>
+    </main>
+    <script src="./scripts/main.js"></script>
+    <footer></footer>
+  </body>
+</html>

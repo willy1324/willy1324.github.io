@@ -6,16 +6,30 @@
     <title>Gatitos aleatorios</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mobile.css" media="screen and (min-width:150px)">
-    <link rel="stylesheet" href="tablet.css" media="screen and (min-width:600px)">
-    <link rel="stylesheet" href="desktop.css" media="screen and (min-width:800px)">
+    
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="./style/mobile.css" media="screen and (min-width:150px)">
+    <link rel="stylesheet" href="./style/tablet.css" media="screen and (min-width:600px)">
+    <link rel="stylesheet" href="./style/desktop.css" media="screen and (min-width:800px)">
   
   </head>
   <body>
-    
     <main>
+      <header>
+        <div class="titles">
+          <h1 class="web-title">Abyssal Projects</h1>
+          <h1 class="sub-title">Cat Finder</h1>
+        </div>
+        <nav>
+          <ul>
+            <a href="../index.html"><li>Inicio</li></a>
+            <a href="../pokemonFinder/pokemonFinder.html"><li>Pokemon Finder</li></a>
+            <a href="../waifuFinder/waifuFinder.html"><li>Waifu Finder</li></a>
+          </ul>
+        </nav>
+      </header>
       <div class="footprints-background">
       </div>
       <h1>Gatitos Aleatorios</h1>
@@ -29,7 +43,15 @@
           <button class="option-btn">Guardar en favoritos</button>
         </article>
       </section>
-      <button class="load-random-mishis-btn" id="loadRandomMishisBtn">Recargar</button>
+      <button class="load-random-mishis-btn" id="loadRandomMichisBtn">Recargar</button>
+
+      <h1>Subir gatito</h1>
+      <section class="upload-michis" id="uploadMichis">
+        <form id="uploadForm">
+          <input id="file" type="file" name="file">
+          <button class="option-btn" id="uploadMichisBtn">Subir Gatito</button>
+        </form>
+      </section>
 
       <h1>Gatitos favoritos</h1>
       <section class="favourite-michis" id="favouritesMichis">
@@ -41,7 +63,9 @@
         </article>
       </section>
     </main>
-
-    <script src="main.js"></script>
+    <footer>
+      
+    </footer>
+    <script src="./scripts/main.js"></script>
   </body>
 </html>

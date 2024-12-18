@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  height: 20vh;
+  background-image: url("images/header-background.png");
+  background-size: 100% 100%;
+  color: #ff4655;
+  border-style: solid;
+  border-width: 0.3rem 0rem;
+}
+
+header h1 {
+  position: absolute;
+  padding: 0.2rem;
+  border-style: solid;
+}
+
+.logo img {
+  padding-left: 2rem;
+  height: 3rem;
+  width: 20rem;
+}
+
+.logo h1 {
+  margin-left: 2.6rem;
+  font-style: italic;
+  font-size: 3rem;
+  color: #ff4655;
+}
+
+body {
+  height: 70vh;
+}
+
+main {
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  background-color: #201226;
+}
+
+.main-section {
+  padding-left: 50px;
+  padding-top: 10px;
+  width: 100%;
+  min-width: 80%;
+  font-size: large;
+  color: crimson;
+  background-color: #fbf9f1;
+  text-shadow: 1px 1px black;
+}
+
+.player-container {
+  width: 100%;
+  height: 90%;
+  display: flex;
+}
+
+.player-info {
+  background-color: white;
+  border-radius: 1rem;
+  display: inline-block;
+  width: 15%;
+  height: 95%;
+  flex-wrap: wrap;
+  margin: 0.3rem 1.3rem;
+}
+
+.player-info h2 {
+  padding: 0.3rem;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.player-info img {
+  max-height: 70%;
+  width: 100%;
+}
+
+.randomizer-button {
+  border-style: none;
+  background-color: #ff4655;
+  color: white;
+  border-radius: 2rem;
+  height: 2.5rem;
+  width: 8rem;
+  margin-left: 40%;
+}
+
+aside {
+  background-image: url("images/minimalist-valorant-logo.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.2;
+  width: 15%;
+}
+
+aside a {
+  color: white;
+}
+
+footer {
+  color: #ff4655;
+  border-style: solid;
+  border-width: 0.3rem 0rem;
+  background: linear-gradient(#361a28, #852937);
+  height: 10vh;
+}
+
+footer p {
+  padding-top: 0.5rem;
+  color: aliceblue;
+  text-align: center;
+}
