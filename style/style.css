@@ -94,8 +94,4 @@ main {
   .sub-title {
     font-size: 4rem;
   }
-
-  header nav {
-    position: absolute;
-  }
 }

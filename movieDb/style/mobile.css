@@ -1,2 +1,138 @@
+:root {
+  --primary-color: rgb(17, 8, 18);
+  --secundary-color: rgb(95, 29, 101);
+}
+
 @media (min-width: 150px) {
+  aside a {
+    all: unset;
+  }
+
+  body {
+    background-color: aliceblue;
+  }
+
+  aside {
+    background-image: linear-gradient(
+      var(--secundary-color),
+      var(--primary-color)
+    );
+    padding: 1.5rem;
+    min-height: 20%;
+  }
+
+  aside nav,
+  button {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .search {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search input {
+    border-style: solid;
+    border-color: var(--secundary-color);
+    height: 2.5rem;
+    width: 85%;
+    border-radius: 0.4rem;
+  }
+
+  .search button {
+    width: 6rem;
+    height: 2.5rem;
+    border-radius: 0.4rem;
+  }
+
+  aside nav h2 {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  aside .genre-list a {
+    text-decoration: none;
+  }
+
+  aside .genre-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    list-style: none;
+  }
+
+  aside .genre-list label,
+  button {
+    border-style: solid;
+    border-color: var(--secundary-color);
+    border-radius: 0.2rem;
+    height: 3rem;
+    display: flex;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /*---Movies---*/
+
+  .movies {
+    font-family: "Audiowide", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /*---Top Movie---*/
+  article,
+  .top-movie,
+  .movies-category {
+    display: block;
+    margin: 0.5rem;
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    color: aliceblue;
+    padding: 0.5rem;
+  }
+
+  .top-movie img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: purple;
+    cursor: pointer;
+  }
+
+  .movie-info {
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+
+  /*---Movie List---*/
+
+  .movies-category h2 {
+    text-align: center;
+  }
+
+  .movies-art-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .movies-art-container figure {
+    width: 50%;
+    height: 15rem;
+    margin: 0.2rem;
+  }
+
+  .movies-art-container img {
+    background-color: purple;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
 }

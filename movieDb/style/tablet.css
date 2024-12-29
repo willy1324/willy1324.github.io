@@ -1,0 +1,39 @@
+@media (min-width: 600px) {
+  .search input {
+    height: 2.5rem;
+    width: 55%;
+    border-radius: 0.4rem;
+  }
+
+  aside .genre-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+  }
+
+  aside .genre-list label {
+    min-width: 8rem;
+  }
+
+  /*---Movies---*/
+
+  /*---Top Movie---*/
+
+  .top-movie article {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .top-movie img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /*---Movie List---*/
+
+  .movies-art-container figure {
+    width: 30rem;
+    height: 25rem;
+    margin: 0.2rem;
+  }
+}
