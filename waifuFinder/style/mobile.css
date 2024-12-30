@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.waifu-mode {
+  border-style: solid;
+  border-color: rgb(151, 45, 45);
+  background-color: rgb(201, 69, 124);
+  margin-top: 2rem;
+  height: 3rem;
+  width: 10rem;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
+  text-align: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: small;
+  color: aliceblue;
+}
+
+.img-container {
+  width: 90vw;
+  margin: 0 auto;
+  background-color: rgb(243, 126, 153);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-container img {
+  border-radius: 2rem;
+  margin: 2rem;
+  height: 90%;
+  width: 90%;
+}

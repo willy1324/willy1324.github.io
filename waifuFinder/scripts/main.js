@@ -1,49 +1,50 @@
-let typeSelector = document.getElementById("typeSelector");
-let waifuCategory = document.getElementById("waifuCategory");
-let waifuCategoryChoice = document.getElementById("waifuCategoryChoice");
-let getWaifuBtn = document.getElementById("getWaifuBtn");
-
-const sfw = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle"];
+const sfw = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "pat"];
 const nsfw = ["waifu", "neko", "trap", "blowjob"];
+
+let nsfwMode = false;
+
+const imgContainer = document.getElementById("imgContainer");
+const waifuMode = document.getElementById("waifuMode");
 
 function urlGenerator(type, category) {
   return (url = `https://api.waifu.pics/${type}/${category}`);
 }
 
-function imageCategory(type, category) {
-  type.forEach((element) => {
-    let listOption = document.createElement("option");
-    listOption.textContent = element;
-    category.append(listOption);
-  });
+async function waifuGetter(type, category) {
+  const response = await fetch(urlGenerator(type, category));
+  const data = await response.json();
+  console.log(data);
+
+  const waifuImg = document.createElement("img");
+  waifuImg.src = data.url;
+  waifuImg.alt = type + " " + category;
+  imgContainer.appendChild(waifuImg);
 }
 
-async function getWaifu(type, categoryChoice) {
-  try {
-    let response = await fetch(urlGenerator(type, categoryChoice));
-    let data = await response.json();
-    console.log(data);
-    document.querySelector("img").src = data.url;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-typeSelector.addEventListener("change", () => {
-  waifuCategory.innerHTML = "";
-  if (typeSelector.value === "SFW") {
-    imageCategory(sfw, waifuCategory);
+function showWaifu(mode) {
+  if (mode) {
+    nsfw.forEach((category) => {
+      waifuGetter("nsfw", category);
+    });
   } else {
-    imageCategory(nsfw, waifuCategory);
+    sfw.forEach((category) => {
+      waifuGetter("sfw", category);
+    });
   }
-});
+}
 
-getWaifuBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  if (waifuCategoryChoice.value === "") {
-    waifuCategoryChoice.value = "waifu";
+showWaifu(nsfwMode);
+
+waifuMode.addEventListener("click", () => {
+  if (!nsfwMode) {
+    nsfwMode = true;
+    waifuMode.textContent = "Modo NSFW";
+    console.log("NSFW Photos " + nsfwMode);
+  } else {
+    nsfwMode = false;
+    waifuMode.textContent = "Modo SFW";
+    console.log("NSFW Photos " + nsfwMode);
   }
-  getWaifu(typeSelector.value, waifuCategoryChoice.value);
+  imgContainer.innerHTML = "";
+  showWaifu(nsfwMode);
 });
-
-getWaifu("sfw", "waifu");

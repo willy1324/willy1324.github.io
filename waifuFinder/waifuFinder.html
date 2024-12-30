@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="./style/mobile.css" />
   </head>
   <body>
     <main>
@@ -30,31 +30,12 @@
           </ul>
         </nav>
       </header>
-      <body>
-        <section>
-          <input
-            list="waifuCategory"
-            id="waifuCategoryChoice"
-            placeholder="waifu"
-          />
-          <datalist id="waifuCategory"></datalist>
-          <button id="getWaifuBtn">Get waifu</button>
-          <button>SFW o NSFW</button>
-        </section>
-        <section>
-          <select id="typeSelector">
-            <option>sfw</option>
-            <option>nsfw</option>
-          </select>
-        </section>
-        <section>
-          <article>
-            <img style="height: 50rem" />
-          </article>
-        </section>
-      </body>
+      <section class="container">
+        <label class="waifu-mode" id="waifuMode">Modo SFW</label>
+        <div class="img-container" id="imgContainer"></div>
+      </section>
+      <footer></footer>
     </main>
     <script src="./scripts/main.js"></script>
-    <footer></footer>
   </body>
 </html>
