@@ -34,6 +34,9 @@ const sfw = [
 const nsfw = ["waifu", "neko", "blowjob", "trap"];
 
 let nsfwMode = false;
+const defaultCategory = "waifu";
+let actualCategory = defaultCategory;
+let imgQuantity = 6;
 
 const imgContainer = document.getElementById("imgContainer");
 const waifuMode = document.getElementById("waifuMode");
@@ -47,10 +50,18 @@ function urlGenerator(type, category) {
 async function waifuGetter(type, category) {
   const response = await fetch(urlGenerator(type, category));
   const data = await response.json();
-  const waifuImg = document.createElement("img");
-  waifuImg.src = data.url;
-  waifuImg.alt = type + " " + category;
-  imgContainer.append(waifuImg);
+
+  if (response.status !== 200) {
+    const errorMsg = (document.createElement("p").textContent =
+      "Error al cargar las imagenes \nERROR:" + response.status);
+    errorMsg.style.color = "red";
+    imgContainer.append(errorMsg);
+  } else {
+    const waifuImg = document.createElement("img");
+    waifuImg.src = data.url;
+    waifuImg.alt = type + " " + category;
+    imgContainer.append(waifuImg);
+  }
 }
 
 //Creacíon de articulos de categorias
@@ -64,27 +75,15 @@ function createCategories(categoriesList) {
   });
 }
 
-function showRandomWaifu(mode, imgQuantity) {
+function showWaifu(mode, category, imgQuantity) {
   waifuCategories.innerHTML = "";
   if (mode) {
     createCategories(nsfw, imgQuantity);
     for (let i = 0; i < imgQuantity; i++) {
-      waifuGetter("nsfw", "waifu");
-    }
-  } else {
-    createCategories(sfw);
-    for (let i = 0; i < imgQuantity; i++) {
-      waifuGetter("sfw", sfw[Math.floor(Math.random() * sfw.length)]);
-    }
-  }
-}
-
-function showWaifu(mode, category, imgQuantity) {
-  if (mode) {
-    for (let i = 0; i < imgQuantity; i++) {
       waifuGetter("nsfw", category);
     }
   } else {
+    createCategories(sfw, imgQuantity);
     for (let i = 0; i < imgQuantity; i++) {
       waifuGetter("sfw", category);
     }
@@ -94,6 +93,7 @@ function showWaifu(mode, category, imgQuantity) {
 //Llamadas a funciones
 
 waifuMode.addEventListener("click", () => {
+  actualCategory = defaultCategory;
   if (!nsfwMode) {
     nsfwMode = true;
     waifuMode.textContent = "Modo NSFW";
@@ -104,22 +104,23 @@ waifuMode.addEventListener("click", () => {
     console.log("NSFW Photos " + nsfwMode);
   }
   imgContainer.innerHTML = "";
-  showRandomWaifu(nsfwMode, 6);
+  showWaifu(nsfwMode, defaultCategory, imgQuantity);
 });
 
 waifuCategories.addEventListener("click", (event) => {
   if (event.target.classList.contains("waifu-category")) {
     const category = event.target.textContent;
     console.log(category);
+    actualCategory = category;
 
     imgContainer.innerHTML = "";
-    showWaifu(nsfwMode, category, 6);
+    showWaifu(nsfwMode, category, imgQuantity);
   }
 });
 
 reloadBtn.addEventListener("click", () => {
   imgContainer.innerHTML = "";
-  showRandomWaifu(nsfwMode, 6);
+  showWaifu(nsfwMode, actualCategory, imgQuantity);
 });
 
-showRandomWaifu(nsfwMode, 6);
+showWaifu(nsfwMode, defaultCategory, imgQuantity);

@@ -36,11 +36,11 @@
 
 .waifu-category {
   margin: 0.1rem;
-  border-radius: 0.2rem;
+  border-radius: 3rem;
   border-color: rgb(113, 36, 36);
-  background-color: rgb(201, 69, 124);
+  background-color: rgb(150, 41, 46);
   height: 60%;
-  width: 5rem;
+  width: 6.5rem;
   text-align: center;
   padding: 0.5rem;
   cursor: pointer;
@@ -80,7 +80,7 @@
   border-color: rgb(113, 36, 36);
   background-color: rgb(201, 69, 124);
   height: 0%;
-  width: 10%;
+  width: 13rem;
   text-align: center;
   padding: 0.5rem;
   cursor: pointer;
