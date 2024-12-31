@@ -1,10 +1,44 @@
-const sfw = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "pat"];
-const nsfw = ["waifu", "neko", "trap", "blowjob"];
+const sfw = [
+  "waifu",
+  "neko",
+  "shinobu",
+  "megumin",
+  "bully",
+  "cuddle",
+  "cry",
+  "hug",
+  "awoo",
+  "kiss",
+  "lick",
+  "pat",
+  "smug",
+  "bonk",
+  "yeet",
+  "blush",
+  "smile",
+  "wave",
+  "highfive",
+  "handhold",
+  "nom",
+  "bite",
+  "glomp",
+  "slap",
+  "kill",
+  "kick",
+  "happy",
+  "wink",
+  "poke",
+  "dance",
+  "cringe",
+];
+const nsfw = ["waifu", "neko", "blowjob", "trap"];
 
 let nsfwMode = false;
 
 const imgContainer = document.getElementById("imgContainer");
 const waifuMode = document.getElementById("waifuMode");
+const waifuCategories = document.getElementById("waifuCategories");
+const reloadBtn = document.getElementById("reloadBtn");
 
 function urlGenerator(type, category) {
   return (url = `https://api.waifu.pics/${type}/${category}`);
@@ -13,27 +47,51 @@ function urlGenerator(type, category) {
 async function waifuGetter(type, category) {
   const response = await fetch(urlGenerator(type, category));
   const data = await response.json();
-  console.log(data);
-
   const waifuImg = document.createElement("img");
   waifuImg.src = data.url;
   waifuImg.alt = type + " " + category;
-  imgContainer.appendChild(waifuImg);
+  imgContainer.append(waifuImg);
 }
 
-function showWaifu(mode) {
+//Creacíon de articulos de categorias
+
+function createCategories(categoriesList) {
+  categoriesList.forEach((category) => {
+    let newCategory = document.createElement("label");
+    newCategory.textContent = category;
+    newCategory.classList.add("waifu-category");
+    waifuCategories.append(newCategory);
+  });
+}
+
+function showRandomWaifu(mode, imgQuantity) {
+  waifuCategories.innerHTML = "";
   if (mode) {
-    nsfw.forEach((category) => {
-      waifuGetter("nsfw", category);
-    });
+    createCategories(nsfw, imgQuantity);
+    for (let i = 0; i < imgQuantity; i++) {
+      waifuGetter("nsfw", "waifu");
+    }
   } else {
-    sfw.forEach((category) => {
-      waifuGetter("sfw", category);
-    });
+    createCategories(sfw);
+    for (let i = 0; i < imgQuantity; i++) {
+      waifuGetter("sfw", sfw[Math.floor(Math.random() * sfw.length)]);
+    }
   }
 }
 
-showWaifu(nsfwMode);
+function showWaifu(mode, category, imgQuantity) {
+  if (mode) {
+    for (let i = 0; i < imgQuantity; i++) {
+      waifuGetter("nsfw", category);
+    }
+  } else {
+    for (let i = 0; i < imgQuantity; i++) {
+      waifuGetter("sfw", category);
+    }
+  }
+}
+
+//Llamadas a funciones
 
 waifuMode.addEventListener("click", () => {
   if (!nsfwMode) {
@@ -46,5 +104,22 @@ waifuMode.addEventListener("click", () => {
     console.log("NSFW Photos " + nsfwMode);
   }
   imgContainer.innerHTML = "";
-  showWaifu(nsfwMode);
+  showRandomWaifu(nsfwMode, 6);
 });
+
+waifuCategories.addEventListener("click", (event) => {
+  if (event.target.classList.contains("waifu-category")) {
+    const category = event.target.textContent;
+    console.log(category);
+
+    imgContainer.innerHTML = "";
+    showWaifu(nsfwMode, category, 6);
+  }
+});
+
+reloadBtn.addEventListener("click", () => {
+  imgContainer.innerHTML = "";
+  showRandomWaifu(nsfwMode, 6);
+});
+
+showRandomWaifu(nsfwMode, 6);
