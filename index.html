@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="style/" />
   </head>
   <body>
     <header>
@@ -19,16 +19,66 @@
         <h1 class="web-title">Abyssal Projects</h1>
       </div>
       <nav>
-        <ul>
-          <a href="./catFinder/catFinder.html"><li>Cat Finder</li></a>
-          <a href="./pokemonFinder/pokemonFinder.html"
-            ><li>Pokemon Finder</li></a
-          >
-          <a href="./waifuFinder/waifuFinder.html"><li>Waifu Finder</li></a>
+        <ul class="navbar">
+          <li><a href="./catFinder/catFinder.html">Cat Finder</a></li>
+          <li>
+            <a href="./pokemonFinder/pokemonFinder.html">Pokemon Finder</a>
+          </li>
+          <li><a href="./waifuFinder/waifuFinder.html">Waifu Finder</a></li>
         </ul>
       </nav>
     </header>
-    <main></main>
-    <footer></footer>
+
+    <main>
+      <!-- Sección de bienvenida -->
+      <section class="intro-section">
+        <h2>Bienvenido a Abyssal Projects</h2>
+        <p>
+          ¡Explora nuestras increíbles herramientas interactivas y diviértete!
+        </p>
+      </section>
+
+      <!-- Sección de proyectos -->
+      <section class="projects-section">
+        <h2>Proyectos Disponibles</h2>
+        <div class="projects-container">
+          <!-- Proyecto 1 - Cat Finder -->
+          <div class="project-card">
+            <img src="images/catFinder.jpg" alt="Cat Finder" />
+            <h3>Cat Finder</h3>
+            <p>¿Buscas un gato en alguna parte del mundo? ¡Déjanos ayudarte!</p>
+            <a href="./catFinder/catFinder.html" class="project-link"
+              >Explorar</a
+            >
+          </div>
+
+          <!-- Proyecto 2 - Pokemon Finder -->
+          <div class="project-card">
+            <img src="images/pokemonFinder.jpg" alt="Pokemon Finder" />
+            <h3>Pokemon Finder</h3>
+            <p>Encuentra a tu Pokémon favorito con solo un par de clics.</p>
+            <a href="./pokemonFinder/pokemonFinder.html" class="project-link"
+              >Explorar</a
+            >
+          </div>
+
+          <!-- Proyecto 3 - Waifu Finder -->
+          <div class="project-card">
+            <img src="images/waifuFinder.jpg" alt="Waifu Finder" />
+            <h3>Waifu Finder</h3>
+            <p>
+              Encuentra a la waifu perfecta para ti entre un montón de opciones.
+            </p>
+            <a href="./waifuFinder/waifuFinder.html" class="project-link"
+              >Explorar</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Abyssal Projects - Todos los derechos reservados</p>
+    </footer>
   </body>
 </html>

@@ -15,6 +15,10 @@ function capitalizeFirstLetter(string) {
   return String(string).charAt(0).toUpperCase() + String(string).slice(1);
 }
 
+function underScoreRemover(string) {
+  return string.replace("-", " ");
+}
+
 class Pokemon {
   constructor() {
     this.lastPokemon = 0;
@@ -74,10 +78,19 @@ class Pokemon {
     }
   }
 
+  async getChainCount() {
+    const response = await fetch(this.getURL(`evolution-chain`));
+    chainCount = response.count;
+    return chainCount;
+  }
+
   async getEvolution(pokemon) {
-    const response = await fetch(this.getURL(`evolution-chain/${pokemon}`));
-    let data = await response.json();
-    this.processEvolution(data);
+    const chainCount = await this.getChainCount();
+    const response = await fetch(
+      this.getURL(`evolution-chain?limit?${chainCount}`)
+    );
+    let evolutionChain = await response.json();
+    this.processEvolution(evolutionChain);
   }
 
   processEvolution(pokemonData) {
@@ -119,7 +132,9 @@ class Pokemon {
 
       for (let element of data.moves) {
         const addMove = document.createElement("li");
-        addMove.textContent = element.move.name;
+        addMove.textContent = underScoreRemover(
+          capitalizeFirstLetter(element.move.name)
+        );
         moveList.append(addMove);
       }
       this.moves.append(moveList);
@@ -147,8 +162,9 @@ const pokemonDex = new Pokemon();
 pokemonDex.getPokemon("bulbasaur");
 pokemonDex.getAllPokemons(pokemonList);
 
-findPokemonBtn.addEventListener("click", () => {
-  pokemonDex.getPokemon(inputPokemon.value.toLowerCase());
+findPokemonBtn.addEventListener("click", async (event) => {
+  event.preventDefault();
+  await pokemonDex.getPokemon(inputPokemon.value.toLowerCase());
   pokemonList.value = pokemonDex.lastPokemon;
 });
 

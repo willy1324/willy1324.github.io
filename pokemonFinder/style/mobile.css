@@ -12,7 +12,7 @@
   align-items: center;
   margin: 1rem auto;
   width: 90%;
-  background-color: rgb(168, 44, 22);
+  background: linear-gradient(#860c0c, #e21313, #b73030, #e21313, #860c0c);
   border-style: solid;
   border-color: var(--pokedex-border-color);
   border-width: var(--pokedex-border-width);
@@ -53,6 +53,7 @@
 }
 
 .find-pokemon-btn {
+  transition: 0.2s;
   width: 10rem;
   height: 3rem;
   margin-left: 1rem;
@@ -61,6 +62,19 @@
   font-family: "Jersey 15", serif;
   font-weight: 400;
   font-style: normal;
+  cursor: pointer;
+}
+
+.find-pokemon-btn:hover {
+  transition: 0.2s;
+  font-size: medium;
+  background-color: rgb(135, 150, 182);
+}
+
+.find-pokemon-btn:active {
+  transition: 0.2s;
+  font-size: x-small;
+  background-color: rgb(98, 109, 133);
 }
 
 .pokemon-container {
