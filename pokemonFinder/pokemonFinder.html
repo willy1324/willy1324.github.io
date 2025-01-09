@@ -10,8 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&family=Jersey+15&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="../style/style.css" />
-    <link rel="stylesheet" href="./style/desktop.css" />
+    <link rel="stylesheet" href="./style/mobile.css" />
   </head>
   <body>
     <header>
@@ -30,29 +35,51 @@
     <main>
       <section class="main-container">
         <section class="selector-bar">
-          <input class="input-pokemon" id="inputPokemon" value="bulbasaur" />
+          <select class="pokemon-list" id="pokemonList"></select>
+          <label>
+            <input class="input-pokemon" id="inputPokemon" value="bulbasaur" />
+          </label>
           <button class="find-pokemon-btn" id="findPokemonBtn">
             Find Pokemon
           </button>
         </section>
+
         <section class="pokemon-container" id="pokemonContainer">
           <section class="pokemon-data" id="pokemonData">
-            <h2 id="pokemonName">MissingNo</h2>
-            <p id="pokedexNumber">Pokedex ID : 0</p>
-            <div>
-              <img id="pokemonSprite" alt="pokemon image" />
+            <div class="info-container">
+              <h2 id="pokemonName">MissingNo</h2>
+              <p id="pokedexNumber">Pokedex ID : 0</p>
             </div>
-            <h3>Types</h3>
-            <p id="pokemonType"></p>
-            <h3>Abilities</h3>
-            <p id="ability"></p>
-            <h3>Base Stats</h3>
-            <p id="hpStat">HP : 0</p>
-            <p id="atkStat">Attack : 0</p>
-            <p id="defStat">Defense : 0</p>
-            <p id="spAtkStat">Special Attack: 0</p>
-            <p id="spDefStat">Special Defense: 0</p>
-            <p id="speedStat">Speed: 0</p>
+
+            <figure class="info-container">
+              <img id="pokemonSprite" alt="pokemon image" />
+            </figure>
+
+            <div class="info-container">
+              <h3>Types</h3>
+              <p id="pokemonType"></p>
+            </div>
+
+            <div class="info-container">
+              <h3>Abilities</h3>
+              <p id="ability"></p>
+            </div>
+
+            <div class="info-container">
+              <h3>Base Stats</h3>
+              <ul>
+                <li id="hpStat">HP : 33</li>
+                <li id="atkStat">Attack : 136</li>
+                <li id="defStat">Defense : 0</li>
+                <li id="spAtkStat">Special Attack: 6</li>
+                <li id="spDefStat">Special Defense: 6</li>
+                <li id="speedStat">Speed: 29</li>
+              </ul>
+            </div>
+
+            <div class="info-container" id="moves">
+              <h3>Move list</h3>
+            </div>
           </section>
         </section>
       </section>

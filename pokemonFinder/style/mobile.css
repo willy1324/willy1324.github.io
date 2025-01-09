@@ -1,0 +1,128 @@
+:root {
+  --pokedex-border-radius: 1.5rem;
+  --pokedex-border-color: rgb(62, 24, 17);
+  --pokedex-border-width: 0.6rem;
+  --pokedex-info-bg-color: antiquewhite;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  width: 90%;
+  background-color: rgb(168, 44, 22);
+  border-style: solid;
+  border-color: var(--pokedex-border-color);
+  border-width: var(--pokedex-border-width);
+  border-radius: var(--pokedex-border-radius);
+  font-family: "Jersey 15", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.selector-bar {
+  width: 95%;
+  margin: 0.5rem;
+  border-style: solid;
+  display: flex;
+  border-color: var(--pokedex-border-color);
+  border-width: var(--pokedex-border-width);
+  border-radius: var(--pokedex-border-radius);
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+
+.pokemon-list {
+  text-align: center;
+  height: 3rem;
+  border-radius: var(--pokedex-border-radius);
+}
+
+.input-pokemon {
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 1rem;
+  text-align: center;
+}
+
+.selector-bar label {
+  width: 10rem;
+}
+
+.find-pokemon-btn {
+  width: 10rem;
+  height: 3rem;
+  margin-left: 1rem;
+  border-radius: var(--pokedex-border-radius);
+  background-color: rgb(195, 207, 236);
+  font-family: "Jersey 15", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.pokemon-container {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-color: var(--pokedex-border-color);
+  border-width: var(--pokedex-border-width);
+  border-radius: var(--pokedex-border-radius);
+  padding: 1rem;
+  margin: 0.5rem auto;
+  width: 96%;
+  min-height: 5rem;
+  background-color: var(--pokedex-info-bg-color);
+}
+
+.input-pokemon {
+  width: 60%;
+  margin: 0.5rem;
+  height: 3rem;
+}
+
+.pokemon-data {
+  background-color: aliceblue;
+  border-radius: var(--pokedex-border-radius);
+  width: 95%;
+}
+
+.info-container {
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-container img {
+  width: 15rem;
+}
+
+.info-container ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  background-color: rgb(218, 225, 243);
+  width: 90%;
+  max-height: 20rem;
+  margin-bottom: 1rem;
+  border-width: var(--pokedex-border-width);
+  border-radius: var(--pokedex-border-radius);
+}
+
+.moves {
+  overflow: auto;
+}
+
+.info-container ul li {
+  height: 3.2rem;
+  font-size: small;
+  text-align: center;
+  padding: 0.2rem;
+  background-color: rgb(195, 207, 236);
+  border-width: var(--pokedex-border-width);
+  border-radius: var(--pokedex-border-radius);
+}
