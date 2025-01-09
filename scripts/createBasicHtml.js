@@ -38,11 +38,15 @@ function createBody() {
     header.append(titles);
   }
 
+  webTitleLink = document.createElement("a");
+  webTitleLink.href = "./index.html";
+
   webTitle = document.createElement("img");
   webTitle.src = "../style/img/webTitle.png";
   webTitle.alt = "web title";
   webTitle.classList.add("web-title");
-  titles.prepend(webTitle);
+  webTitleLink.append(webTitle);
+  titles.prepend(webTitleLink);
 
   if (footer === null) {
     footer = document.createElement("footer");

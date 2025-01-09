@@ -50,6 +50,15 @@ main {
   }
 
   .sub-title {
+    position: absolute;
+    width: 15rem;
+    height: 10rem;
+    left: 100%;
+    transform: translate(-100%, 0);
+    margin-right: 0rem;
+  }
+
+  .titles h1 {
     text-align: right;
     font-size: 3rem;
     width: 100%;
@@ -106,13 +115,20 @@ header li:hover {
   }
 
   .web-title {
-    width: 25rem;
-    height: 12rem;
+    cursor: pointer;
+    width: 23rem;
+    height: 13rem;
     margin-left: 2rem;
     margin-bottom: 0.5rem;
   }
 
   .sub-title {
+    width: 23rem;
+    height: 13rem;
+    left: 98%;
+  }
+
+  .titles h1 {
     font-size: 3rem;
     text-align: right;
   }
