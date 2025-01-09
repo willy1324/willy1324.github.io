@@ -1,7 +1,15 @@
+:root {
+  --gui-gradient: linear-gradient(#140101, #561616, #170101);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+a {
+  all: unset;
 }
 
 html {
@@ -10,17 +18,22 @@ html {
 
 header {
   min-height: 15vh;
-  background: linear-gradient(rgb(44, 41, 41), black);
+  background: var(--gui-gradient);
 }
 
 footer {
+  min-height: 10vh;
+  background: var(--gui-gradient);
+}
+
+footer p {
   color: aliceblue;
-  min-height: 15vh;
-  background: linear-gradient(rgb(44, 41, 41), black);
+  text-align: center;
+  padding-top: 5rem;
 }
 
 main {
-  max-width: 100%;
+  min-height: 75vh;
 }
 
 @media (min-width: 150px) {
@@ -30,15 +43,10 @@ main {
   }
 
   .web-title {
-    width: 100%;
-    text-align: left;
-    margin-left: 2rem;
+    width: 15rem;
+    height: 10rem;
+    margin-left: 0.5rem;
     margin-bottom: 0.5rem;
-    font-size: 3rem;
-    font-family: "Audiowide", serif;
-    font-weight: 400;
-    color: aliceblue;
-    font-style: normal;
   }
 
   .sub-title {
@@ -50,19 +58,45 @@ main {
   }
 
   header nav {
+    font-family: "Roboto", serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    font-size: 0.5rem;
     width: 100%;
+    padding: 0.5rem;
     display: flex;
     justify-content: flex-end;
+    background-color: #411111;
+    border-style: solid;
+    border-color: #260808;
+    border-width: 0.1rem;
+    border-left-width: 0;
+    border-right-width: 0;
   }
 
-  header li,
-  a {
+  header li {
+    transition: 0.2s;
+    cursor: pointer;
     text-decoration: none;
     margin: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     display: inline;
-    color: aliceblue;
+    color: rgb(248, 223, 223);
     font-size: 1.5rem;
+    background-color: #831d1d;
+    border-style: solid;
+    border-width: 0.1rem;
+    border-radius: 0.5rem;
+    border-color: rgb(36, 13, 13);
   }
+}
+
+header li:hover {
+  transition: 0.2s;
+  background-color: #b12626;
 }
 
 @media (min-width: 600px) {
@@ -72,7 +106,10 @@ main {
   }
 
   .web-title {
-    font-size: 4rem;
+    width: 25rem;
+    height: 12rem;
+    margin-left: 2rem;
+    margin-bottom: 0.5rem;
   }
 
   .sub-title {
@@ -87,10 +124,6 @@ main {
 }
 
 @media (min-width: 800px) {
-  .web-title {
-    font-size: 5rem;
-  }
-
   .sub-title {
     font-size: 4rem;
   }
