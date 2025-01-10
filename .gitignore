@@ -143,5 +143,9 @@ dist
 
 #API Keys
 scripts/apiKeys.js
+movieDb/scripts/secrets.js
+
+#Cosas Random
+/tonterias/
 
 # End of https://www.toptal.com/developers/gitignore/api/node

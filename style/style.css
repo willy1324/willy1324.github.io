@@ -30,7 +30,7 @@ footer {
 footer p {
   color: aliceblue;
   text-align: center;
-  padding-top: 5rem;
+  padding: 3rem;
 }
 
 main {
@@ -62,8 +62,12 @@ main {
   .titles h1 {
     text-align: right;
     font-size: 3rem;
-    width: 100%;
-    margin-right: 2rem;
+    position: absolute;
+    width: 15rem;
+    height: 10rem;
+    left: 100%;
+    transform: translate(-100%, 0);
+    margin-right: 0rem;
     color: aliceblue;
   }
 

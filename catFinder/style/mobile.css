@@ -18,7 +18,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background-image: url("../background/main-background.png");
+    background-image: url("../style/background/main-background.png");
     background-size: 15%;
     background-position: right 2rem;
     opacity: 0.4;

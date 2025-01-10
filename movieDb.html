@@ -3,45 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abyssal Projects</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Dancing+Script:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="../style/style.css" />
+    <title>Peliculas DB</title>
     <link
       rel="stylesheet"
-      href="./style/mobile.css"
+      href="./movieDb/style/mobile.css"
       media="screen and (min-width:150px)"
     />
     <link
       rel="stylesheet"
-      href="./style/tablet.css"
+      href="./movieDb/style/tablet.css"
       media="screen and (min-width:600px)"
     />
     <link
       rel="stylesheet"
-      href="./style/desktop.css"
+      href="./movieDb/style/desktop.css"
       media="screen and (min-width:1024px)"
     />
   </head>
   <body>
     <header>
       <div class="titles">
-        <h1 class="web-title">Abyssal Projects</h1>
         <h1 class="sub-title">Movie Database</h1>
       </div>
       <nav>
         <ul>
-          <a href="../catFinder/catFinder.html"><li>Cat Finder</li></a>
-          <a href="../pokemonFinder/pokemonFinder.html"
+          <a href="./catFinder.html"><li>Cat Finder</li></a>
+          <a href="./pokemonFinder.html"
             ><li>Pokemon Finder</li></a
           >
-          <a href="../waifuFinder/waifuFinder.html"><li>Waifu Finder</li></a>
+          <a href="./waifuFinder.html"><li>Waifu Finder</li></a>
         </ul>
       </nav>
     </header>
@@ -73,7 +63,7 @@
       <section class="movies">
         <section class="top-movie">
           <article>
-            <a href="#"><img alt="Top movie" src="../catFinder/background/default-article-background.png"></img></a>
+            <a href="#"><img alt="Top movie"></img></a>
             <div class="movie-info">
               <h2>Movie Title</h2>
               <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, dolorum rem odit sunt perspiciatis illo quisquam suscipit maiores quibusdam beatae vel mollitia pariatur id in veniam, vitae porro doloribus molestias!</p>
@@ -83,16 +73,16 @@
           <h2>Populares</h2>
           <div class="movies-art-container">
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie" ></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>  
           </div>
         </section>
@@ -100,16 +90,16 @@
           <h2>Trending</h2>
           <div class="movies-art-container">
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie" ></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie" ></a>
             </figure>  
           </div>
         </section>
@@ -117,22 +107,23 @@
           <h2>Proximamente</h2>
           <div class="movies-art-container">
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>
             <figure>
-              <a href="#"><img alt="movie" src="../catFinder/background/main-background.png"></a>
+              <a href="#"><img alt="movie"></a>
             </figure>  
           </div>
         </section>
       </section>
-    <footer></footer>
+      <script src="../scripts/createBasicHtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../script/main.js"></script>
+    <script src="./scripts/apiKeys.js"></script>
+    <script src="./movieDb/scripts/main.js"></script>
   </body>
 </html>
