@@ -18,6 +18,7 @@ html {
 
 header {
   min-height: 15vh;
+  opacity: 0.95;
   background: var(--gui-gradient);
 }
 
