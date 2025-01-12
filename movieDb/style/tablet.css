@@ -7,6 +7,7 @@
 
   aside .genre-list {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     justify-content: center;
   }
@@ -24,15 +25,23 @@
   }
 
   .top-movie img {
-    width: 100%;
-    height: 100%;
+    width: 45rem;
+    height: 50rem;
   }
 
   /*---Movie List---*/
 
-  .movies-art-container figure {
-    width: 30rem;
-    height: 50%;
-    margin: 0.2rem;
+  .media .movies-art-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .movie-details-content {
+    display: flex;
+  }
+
+  .movie-details-content #movieDetailsImg {
+    display: inline;
+    width: 40%;
+    border-radius: 0.5rem;
   }
 }

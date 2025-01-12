@@ -21,6 +21,7 @@
     />
   </head>
   <body>
+    <img class="background" src="./movieDb/style/background/background.png">
     <header>
       <div class="titles">
         <h1 class="sub-title">Movie Database</h1>
@@ -44,86 +45,86 @@
             placeholder="Busca una pelicula"
             id="searchInput"
           />
-          <button>Buscar</button>
+          <button id="searchBtn" class="search-btn">Buscar</button>
         </div>
         <nav>
           <h2>Buscar por genero</h2>
-          <div class="genre-list">
-            <a href="#"><label>Accion</label></a>
-            <a href="#"><label>Comedia</label></a>
-            <a href="#"><label>Horror</label></a>
-            <a href="#"><label>Romance</label></a>
-            <a href="#"><label>Documental</label></a>
-            <a href="#"><label>Sci-Fi</label></a>
+          <div id = "genreList" class="genre-list">
           </div>
         </nav>
       </aside>
 
       <!-- Comienza e listado de peliculas-->
-      <section class="movies">
-        <section class="top-movie">
-          <article>
-            <a href="#"><img alt="Top movie"></img></a>
-            <div class="movie-info">
-              <h2>Movie Title</h2>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, dolorum rem odit sunt perspiciatis illo quisquam suscipit maiores quibusdam beatae vel mollitia pariatur id in veniam, vitae porro doloribus molestias!</p>
+      <section id="movies" class="movies">
+        <section id="media" class="media">
+          <div class="media-nav">
+            <button class="back-btn"><</button>
+            <h2 id="mediaTitle">Seccion</h2>
+            <h2 id="searchMediaTitle"> Busqueda</h2>
+          </div>
+          <div class="movies-art-container"></div>
+        </section>
+        <section id = "previewPage">
+          <section id ="topMovie" class="top-movie">
+            <article>
+              <a><img id="topMovieImg" 
+                class="movie-preview" 
+                alt="Top movie"
+                ></img></a>
+              <div id="topMovieInfo" class="movie-info">
+                <h2 class="movie-preview">Movie Title</h2>
+                <p class="movie-preview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, dolorum rem odit sunt perspiciatis illo quisquam suscipit maiores quibusdam beatae vel mollitia pariatur id in veniam, vitae porro doloribus molestias!</p>
+              </div>
+            </article>
+          </section>
+          <section id="popular" class="movies-category">
+            <h2 class="category-title">Populares</h2>
+            <div class="movies-art-container">
             </div>
+          </section>
+          <section id="trending" class="movies-category">
+            <h2 class="category-title">Trending</h2>
+            <div class="movies-art-container"></div>
+          </section>
+          <section id="upcoming" class="movies-category">
+            <h2 class="category-title">Proximamente</h2>
+            <div class="movies-art-container"></div>
+          </section>
         </section>
-        <section class="movies-category">
-          <h2>Populares</h2>
-          <div class="movies-art-container">
-            <figure>
-              <a href="#"><img alt="movie" ></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>  
+        <section id="movieDetails">
+          <div class="movie-details-content">
+            <button class="back-btn"><</button>
+            <img id="movieDetailsImg" alt="selected movie"></img>
+            <div id="movieDetailsInfo" class="movie-info">
+              <h2>Movie Title</h2>
+              <p class="movie-overview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, dolorum rem odit sunt perspiciatis illo quisquam suscipit maiores quibusdam beatae vel mollitia pariatur id in veniam, vitae porro doloribus molestias!</p>
+              <p id ="movieReleaseDate">Fecha de lanzamiento: 1900-01-01</p>
+              <p id="movieScore">Puntuacíon: 0.00</p>
+              <div>
+                <h2>Generos</h2>
+                <div id="movieGenres">
+                  <label class="genre-label">Accíon</label>
+                  <label class="genre-label">Romance</label>
+                  <label class="genre-label">Pornografía</label>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
-        <section class="movies-category">
-          <h2>Trending</h2>
-          <div class="movies-art-container">
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie" ></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie" ></a>
-            </figure>  
-          </div>
-        </section>
-        <section class="movies-category">
-          <h2>Proximamente</h2>
-          <div class="movies-art-container">
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>
-            <figure>
-              <a href="#"><img alt="movie"></a>
-            </figure>  
+          <div id="recommendedMovies" class="recommended-movies">
+            <h2>Peliculas Recomendadas</h2>
+            <div class="movies-art-container"></div>
           </div>
         </section>
       </section>
-      <script src="../scripts/createBasicHtml.js"></script>
+      
+      <div>
+    <script src="../scripts/createBasicHtml.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts/apiKeys.js"></script>
+    <script src="./movieDb/scripts/nodes.js"></script>
     <script src="./movieDb/scripts/main.js"></script>
+    <script src="./movieDb/scripts/buttons.js"></script>
+    <script src="./movieDb/scripts/navigation.js"></script>
+      </div>
   </body>
 </html>
