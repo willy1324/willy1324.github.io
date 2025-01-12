@@ -1,135 +1,87 @@
-export class Display
-{
+export class Display {
+  constructor() {
+    this.controller = ["Brimstone", "Astra", "Clove", "Harbor", "Omen", "Viper"];
 
-    constructor()
-    {
+    this.initiator = ["Breach", "Fade", "Gekko", "KAY/O", "Skye", "Sova", "Tejo"];
 
-        this.controller = 
-        [
-            "Brimstone",
-            "Astra",
-            "Clove",
-            "Harbor",
-            "Omen",
-            "Viper"
-        ];
+    this.sentinel = ["Chamber", "Cypher", "Deadlock", "Killjoy", "Sage", "Vyse"];
 
-        this.initiator = 
-        [
-            "Breach",
-            "Fade",
-            "Gekko",
-            "KAY/O",
-            "Skye",
-            "Sova"
-        ];
+    this.duelist = ["Iso", "Jett", "Neon", "Phoenix", "Raze", "Reyna", "Yoru"];
 
-        this.sentinel = 
-        [
-            "Chamber",
-            "Cypher",
-            "Deadlock",
-            "Killjoy",
-            "Sage",
-            "Vyse"
-        ];
+    this.roleList = ["Controlador", "Iniciador", "Centinela", "Duelista"];
+  }
 
-        this.duelist = 
-        [   
-            "Iso",
-            "Jett",
-            "Neon",
-            "Phoenix",
-            "Raze",
-            "Reyna",
-            "Yoru"
-        ];
+  //Metodo de seleccion de personajes
+  characterAssigner(playerContainer, playerName) {
+    //Declaración y seleccion del rol dentro de la lista de roles.
+    let randomRole = this.roleList[Math.round(Math.random() * 3)];
+    let randomCharacter = this.controller[0];
+    let randomNum;
 
-        this.roleList = 
-        [
-            "Controlador",
-            "Iniciador",
-            "Centinela",
-            "Duelista",
+    //generara un numero aleatorio dependiendo del largo de la lista de personajes actual, elegira un personaje de la lista
+    // y luego lo borrara para evitar duplicados.
+    switch (randomRole) {
+      case "Controlador":
+        randomNum = Math.floor(Math.random() * this.controller.length);
+        randomCharacter = this.controller[randomNum];
+        this.controller.splice(randomNum, 1);
+        break;
 
-        ];
+      case "Iniciador":
+        randomNum = Math.floor(Math.random() * this.initiator.length);
+        randomCharacter = this.initiator[Math.floor(randomNum)];
+        this.initiator.splice(randomNum, 1);
+        break;
+
+      case "Centinela":
+        randomNum = Math.floor(Math.random() * this.sentinel.length);
+        randomCharacter = this.sentinel[Math.floor(randomNum)];
+        this.sentinel.splice(randomNum, 1);
+        break;
+
+      case "Duelista":
+        randomNum = Math.floor(Math.random() * this.duelist.length);
+        randomCharacter = this.duelist[Math.floor(randomNum)];
+        this.duelist.splice(randomNum, 1);
+        break;
     }
 
-    //Metodo de seleccion de personajes
-    characterAssigner(playerContainer,playerName)
-    {
-        //Declaración y seleccion del rol dentro de la lista de roles.
-        let randomRole = this.roleList[Math.round(Math.random()*3)];
-        let randomCharacter = this.controller[0];
-        let randomNum;
+    //Mostrara la informacion en pantalla
+    this.showDisplay(playerContainer, playerName, randomRole, randomCharacter);
+    return console.log(randomCharacter);
+  }
 
-        //generara un numero aleatorio dependiendo del largo de la lista de personajes actual, elegira un personaje de la lista
-        // y luego lo borrara para evitar duplicados.
-        switch (randomRole)
-        {
-            case "Controlador":
-                randomNum = Math.floor(Math.random() * this.controller.length);
-                randomCharacter = this.controller[randomNum];
-                this.controller.splice(randomNum,1)
-            break;
+  //Mostrador de informacion
+  showDisplay(playerContainer, playerName, randomRole, randomCharacter) {
+    //Creando contenedores
+    const playerInfo = document.createElement("div");
+    playerInfo.className = "player-info";
 
-            case "Iniciador":
-                randomNum = Math.floor(Math.random() * this.initiator.length);
-                randomCharacter = this.initiator[Math.floor(randomNum)]
-                this.initiator.splice(randomNum,1)
-            break;
-        
-            case "Centinela":
-                randomNum = Math.floor(Math.random() * this.sentinel.length);
-                randomCharacter = this.sentinel[Math.floor(randomNum)]
-                this.sentinel.splice(randomNum,1)
-            break;
+    //Creando Informacion
+    //Nombre del jugador
+    const playerTitle = document.createElement("h2");
+    playerTitle.className = "player-name";
+    playerTitle.textContent = playerName;
+    playerInfo.append(playerTitle);
 
-            case "Duelista":
-                randomNum = Math.floor(Math.random() * this.duelist.length);
-                randomCharacter = this.duelist[Math.floor(randomNum)]
-                this.duelist.splice(randomNum,1)
-            break;
-        }
+    //Rol Seleccionado
+    const roleTitle = document.createElement("h2");
+    roleTitle.className = "role-name";
+    roleTitle.textContent = randomRole;
+    playerInfo.append(roleTitle);
 
-        //Mostrara la informacion en pantalla
-        this.showDisplay(playerContainer,playerName,randomRole,randomCharacter);
-        return console.log(randomCharacter);
-    }
+    //Agente Seleccionado
+    const agentTitle = document.createElement("h2");
+    agentTitle.className = "agent-title";
+    agentTitle.textContent = randomCharacter;
+    playerInfo.append(agentTitle);
 
-    //Mostrador de informacion
-    showDisplay(playerContainer,playerName,randomRole,randomCharacter)
-    {
-    
-        //Creando contenedores
-        const playerInfo = document.createElement("div");
-        playerInfo.className = "player-info";
+    //Imagen Agente
+    const agentPortrait = document.createElement("img");
+    agentPortrait.alt = "Agent Portrait";
+    agentPortrait.src = "https://paimon.moe/images/characters/full/keqing.png";
+    playerInfo.append(agentPortrait);
 
-        //Creando Informacion
-        //Nombre del jugador
-        const playerTitle = document.createElement("h2");
-        playerTitle.className = "player-name";
-        playerTitle.textContent = playerName;
-        playerInfo.append(playerTitle);
-
-        //Rol Seleccionado
-        const roleTitle = document.createElement("h2");
-        roleTitle.className = "role-name";
-        roleTitle.textContent = randomRole;
-        playerInfo.append(roleTitle);
-
-        //Agente Seleccionado
-        const agentTitle = document.createElement("h2");
-        agentTitle.className = "agent-title";
-        agentTitle.textContent = randomCharacter;
-        playerInfo.append(agentTitle);
-
-        //Imagen Agente
-        const agentPortrait = document.createElement("img");
-        agentPortrait.alt = "Agent Portrait";
-        agentPortrait.src = "https://paimon.moe/images/characters/full/keqing.png";
-        playerInfo.append(agentPortrait);
-
-        playerContainer.append(playerInfo);
-    }
+    playerContainer.append(playerInfo);
+  }
 }

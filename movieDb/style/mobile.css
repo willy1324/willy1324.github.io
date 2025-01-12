@@ -1,7 +1,32 @@
 :root {
-  --primary-color: rgb(17, 8, 18);
+  --primary-color: rgb(15, 0, 12);
   --secundary-color: rgb(95, 29, 101);
 }
+
+/*---------Scroll Bar-------------*/
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--secundary-color);
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: radial-gradient(ellipse at top, var(--secundary-color), var(--primary-color));
+  border-radius: 2rem;
+}
+
+a {
+  all: unset;
+}
+
+.inactive {
+  display: none;
+}
+
+/*---------------Pagina Web*-------------------*/
 
 @media (min-width: 150px) {
   aside a {
@@ -9,14 +34,21 @@
   }
 
   body {
-    background-color: aliceblue;
+    background-color: rgb(28, 2, 26);
+  }
+
+  .background {
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+  }
+
+  main {
+    opacity: 0.97;
   }
 
   aside {
-    background-image: linear-gradient(
-      var(--secundary-color),
-      var(--primary-color)
-    );
+    background-image: radial-gradient(ellipse at top, var(--secundary-color), var(--primary-color));
     padding: 1.5rem;
     min-height: 20%;
   }
@@ -49,7 +81,7 @@
 
   aside nav h2 {
     text-align: center;
-    color: white;
+    color: aliceblue;
     font-size: 1.5rem;
   }
 
@@ -59,7 +91,7 @@
 
   aside .genre-list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     list-style: none;
   }
 
@@ -71,7 +103,7 @@
     height: 3rem;
     display: flex;
     background-color: var(--primary-color);
-    color: white;
+    color: plum;
     font-size: 1.2rem;
     text-align: center;
     justify-content: center;
@@ -97,13 +129,19 @@
   /*---Top Movie---*/
   article,
   .top-movie,
-  .movies-category {
-    display: block;
+  .movies-category,
+  .media,
+  .movie-details-content,
+  .recommended-movies {
     margin: 0.5rem;
     background-color: var(--primary-color);
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     color: aliceblue;
     padding: 0.5rem;
+  }
+
+  .top-movie p {
+    color: plum;
   }
 
   .top-movie img {
@@ -125,23 +163,76 @@
     text-align: center;
   }
 
-  .movies-art-container {
-    display: flex;
+  .movies-category h2 {
+    cursor: pointer;
   }
 
-  .movies-art-container figure {
-    display: flex;
-    justify-content: center;
-    width: 50%;
-    height: 50%;
-    margin: 0.2rem;
+  .back-btn {
+    position: absolute;
+    width: 5rem;
+    font-size: x-large;
+    margin-left: 0.2rem;
+    border-radius: 1.5rem;
   }
 
-  .movies-art-container img {
-    height: 100%;
-    width: 100%;
+  .media-nav h2 {
+    text-align: center;
+    font-size: large;
+  }
+
+  .media .movies-art-container {
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-width: 100%;
+    gap: 20px;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  .media .movies-art-container img {
+    cursor: pointer;
+    margin: 0 auto;
+    height: 16rem;
+    width: 12rem;
     background-color: purple;
     border-radius: 0.5rem;
+  }
+
+  /*--------------------Previews Movies------------------*/
+
+  .movies-category .movies-art-container {
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  .movies-category .movies-art-container img {
     cursor: pointer;
+    margin: 0 0.2rem;
+    height: 20rem;
+    width: 10rem;
+    background-color: purple;
+    border-radius: 0.5rem;
+  }
+  /*-------------------Movie info------------------------*/
+  .movie-details-content #movieDetailsImg {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+
+  #movieGenres .genre-label {
+    margin: 4rem 1rem;
+    cursor: pointer;
+  }
+
+  #recommendedMovies .movies-art-container {
+    display: flex;
+    overflow-x: auto;
+  }
+  #recommendedMovies .movies-art-container img {
+    cursor: pointer;
+    width: 15rem;
+    margin: 0 0.2rem;
+    border-radius: 0.5rem;
   }
 }

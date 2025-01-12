@@ -20,9 +20,13 @@
     font-size: large;
   }
 
-  .movies-art-container figure {
-    width: 40rem;
-    height: 45rem;
-    margin: 3rem;
+  .media .movies-art-container img {
+    height: 30rem;
+    width: 20rem;
+  }
+
+  .movies-category .movies-art-container img {
+    height: 30rem;
+    width: 20rem;
   }
 }
