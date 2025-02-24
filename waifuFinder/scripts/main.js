@@ -58,6 +58,7 @@ async function waifuGetter(type, category) {
     imgContainer.append(errorMsg);
   } else {
     const waifuImg = document.createElement("img");
+    waifuImg.loading = "lazy";
     waifuImg.src = data.url;
     waifuImg.alt = type + " " + category;
     imgContainer.append(waifuImg);

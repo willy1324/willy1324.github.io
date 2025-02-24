@@ -11,6 +11,7 @@ function callPage(event) {
     searchMediaTitle.textContent = "Busqueda : " + searchInput.value;
   } else if (event.target.classList.contains("genre-label")) {
     location.hash = `#genre=${event.target.id}-${event.target.textContent}`;
+    location.reload();
   } else if (event.target.classList.contains("category-title")) {
     console.log(event.target.textContent);
     location.hash = "#category=" + event.target.parentElement.id;
@@ -21,6 +22,12 @@ function callPage(event) {
 }
 
 //=======Llamados a Botones
-
-//Generos
 document.body.addEventListener("click", (event) => callPage(event));
+
+/*backToTopBtn.addEventListener("click", () => {
+  window.scrollTo(0, 0);
+});*/
+
+/*backToHomeBtn.addEventListener("click", () => {
+  location.hash = "#home";
+});*/

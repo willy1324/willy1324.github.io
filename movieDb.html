@@ -38,7 +38,7 @@
     </header>
     <main>
       <!-- Barra de navegacion -->
-      <aside>
+      <aside>    
         <div class="search">
           <input
             type="text"
@@ -63,19 +63,28 @@
             <h2 id="searchMediaTitle"> Busqueda</h2>
           </div>
           <div class="movies-art-container"></div>
+          <!--<div class="media-bottom-btn inactive">
+            <button id="backToTopBtn" class="back-to-top-btn">Volver arriba</button>
+            <button id="moreMovies" class="more-movies-btn">+</button>
+            <button id="backToHomeBtn" class="back-to-home-btn">Volver al Home</button>
+          </div>-->
         </section>
         <section id = "previewPage">
           <section id ="topMovie" class="top-movie">
             <article>
-              <a><img id="topMovieImg" 
+              <img id="topMovieImg" 
                 class="movie-preview" 
-                alt="Top movie"
-                ></img></a>
+              </img>
               <div id="topMovieInfo" class="movie-info">
-                <h2 class="movie-preview">Movie Title</h2>
-                <p class="movie-preview">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, dolorum rem odit sunt perspiciatis illo quisquam suscipit maiores quibusdam beatae vel mollitia pariatur id in veniam, vitae porro doloribus molestias!</p>
+                <h2 class="movie-preview"></h2>
+                <p class="movie-preview"></p>
               </div>
             </article>
+          </section>
+          <section id="favorites" class="movies-category">
+            <h2 class="category-title">Favoritos</h2>
+            <div class="movies-art-container">
+            </div>
           </section>
           <section id="popular" class="movies-category">
             <h2 class="category-title">Populares</h2>
@@ -122,6 +131,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./scripts/apiKeys.js"></script>
     <script src="./movieDb/scripts/nodes.js"></script>
+    <script src="./movieDb/scripts/defaultViewPage.js"></script>
     <script src="./movieDb/scripts/main.js"></script>
     <script src="./movieDb/scripts/buttons.js"></script>
     <script src="./movieDb/scripts/navigation.js"></script>

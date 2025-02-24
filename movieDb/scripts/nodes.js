@@ -13,9 +13,16 @@ const movies = $("#movies");
 const media = $("#media");
 const mediaTitle = $("#mediaTitle");
 const searchMediaTitle = $("#searchMediaTitle");
+const mediaArtContainer = $("#media .movies-art-container");
+const moreMovies = $("#moreMovies");
+const backToHomeBtn = $("#backToHomeBtn");
+const backToTopBtn = $("#backToTopBtn");
 //Selected Movie section
 //Preview Section
 const previewPage = $("#previewPage");
+//Favorites
+const favorites = $("#favorites");
+const favoritesArtContainer = $("#favorites .movies-art-container");
 //Top Movie
 const topMovie = $("#topMovie");
 const topMovieImg = $("#topMovieImg");
