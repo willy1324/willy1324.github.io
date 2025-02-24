@@ -1,3 +1,5 @@
+//Variables de entorno
+
 api = axios.create({
   baseURL: "https://api.themoviedb.org/3/",
   params: {
@@ -48,6 +50,15 @@ async function getMoviesGenres() {
 //==================Peliculas=========================
 
 //Utilidades
+const lazyLoader = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting === true) {
+      const url = entry.target.getAttribute("data-movieImg-url");
+      entry.target.setAttribute("src", url);
+    }
+  });
+});
+
 function createGenres(genresData, genresContainer) {
   genresContainer.innerHTML = "";
   genresData.forEach(({ name, id }) => {
@@ -63,16 +74,23 @@ function createGenres(genresData, genresContainer) {
   });
 }
 
-function createMovieList(movieData, movieContainer) {
+function createMovieList(movieData, movieContainer, hasInfiniteScroll) {
   const moviesArtContainer = document.querySelector(`#${movieContainer} .movies-art-container`);
-  moviesArtContainer.innerHTML = "";
+  if (hasInfiniteScroll) moviesArtContainer.innerHTML = "";
 
   movieData.forEach((movie) => {
     const movieImg = document.createElement("img");
     movieImg.classList.add("movie-preview");
     movieImg.setAttribute("alt", movie.title);
-    movieImg.setAttribute("src", "https://image.tmdb.org/t/p/w300" + movie.poster_path);
+    movieImg.setAttribute("src", "movieDb/style/placeholder.jpg");
     movieImg.setAttribute("data-movie-id", movie.id);
+    movieImg.setAttribute(
+      "data-movieImg-url",
+      "https://image.tmdb.org/t/p/w300" + movie.poster_path
+    );
+    if (movie.poster_path !== null) {
+      lazyLoader.observe(movieImg);
+    }
     moviesArtContainer.appendChild(movieImg);
   });
 }
@@ -90,10 +108,14 @@ async function getTopRatedMoviePreview() {
     return;
   }
 
-  topMovieImg.setAttribute(
-    "src",
-    "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path
-  );
+  topMovieInfo.classList.remove("loading-info");
+  topMovieImg.setAttribute("src", "movieDb/style/placeholder.jpg");
+  if (movie.poster_path !== null) {
+    topMovieImg.setAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path
+    );
+  }
   topMovieImg.setAttribute("data-movie-id", movie.id);
   topMovieTitle.textContent = movie.title;
   topMovieTitle.setAttribute("data-movie-id", movie.id);
@@ -113,7 +135,7 @@ async function getMovieBySearch(query) {
     return;
   }
 
-  createMovieList(results, "media");
+  createMovieList(results, "media", false);
 }
 
 async function getMoviesPreview(direction) {
@@ -126,14 +148,30 @@ async function getMoviesPreview(direction) {
     return;
   }
 
-  createMovieList(results, direction.container);
+  createMovieList(results, direction.container, true);
 }
 
-async function getGenreMovies(id, title) {
+async function getGenreMovies(id, title, page) {
   const {
     data: { results },
   } = await api(endpoints.discover.endpoint, {
-    params: { with_genres: id },
+    params: { with_genres: id, page: page },
+  });
+
+  if (results === undefined) {
+    return console.log("Datos erroneos o no encontrados:" + results);
+  }
+  mediaTitle.classList.remove("loading-info");
+  mediaTitle.textContent = title;
+
+  createMovieList(results, "media", false);
+}
+
+async function getCategorieMovies(endpoint, title, page) {
+  const {
+    data: { results },
+  } = await api(endpoint, {
+    params: { page: page },
   });
 
   if (results === undefined) {
@@ -141,29 +179,21 @@ async function getGenreMovies(id, title) {
     return;
   }
   mediaTitle.textContent = title;
-  createMovieList(results, "media");
-}
-
-async function getCategorieMovies(endpoint, title) {
-  const {
-    data: { results },
-  } = await api(endpoint);
-
-  if (results === undefined) {
-    console.log("Datos erroneos o no encontrados:" + results);
-    return;
-  }
-  mediaTitle.textContent = title;
-  createMovieList(results, "media");
+  mediaTitle.classList.remove("loading-info");
+  createMovieList(results, "media", false);
 }
 
 async function getMovieById(id) {
   const { data: movie } = await api(endpoints.movie.endpoint + id);
+  movieDetailsInfo.classList.remove("loading-info");
   movieDetailsTitle.textContent = movie.title;
-  movieDetailsImg.setAttribute(
-    "src",
-    "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path
-  );
+  movieDetailsImg.setAttribute("src", "movieDb/style/placeholder.jpg");
+  if (movie.poster_path !== null) {
+    movieDetailsImg.setAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w600_and_h900_bestv2" + movie.poster_path
+    );
+  }
   movieDetailsInfoP.textContent = movie.overview;
   [movieYear, movieMonth, movieDay] = movie.release_date.split("-");
   movieReleaseDate.textContent = `Fecha de lanzamiento : ${movieDay} - ${movieMonth} - ${movieYear}`;
@@ -178,7 +208,7 @@ async function getRecommendedMovies(id) {
     data: { results },
   } = await api(endpoints.movie.endpoint + id + "/recommendations");
 
-  createMovieList(results, "recommendedMovies");
+  createMovieList(results, "recommendedMovies", true);
 }
 
 //Llamadas
